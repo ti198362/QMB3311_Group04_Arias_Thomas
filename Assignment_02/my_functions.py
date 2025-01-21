@@ -1,6 +1,8 @@
-# Script: my_functions.py
+# QMB 3311: Python for Business Analytics
 # Authors: Timothy Arias and Destiny Thomas
 # Date: Jan 20 2025
+##################################################
+
 
 # Exercise 1
 
