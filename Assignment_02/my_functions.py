@@ -32,8 +32,11 @@ present_value(1000, 0.50, 2)
 
 
 # 1b.
+
 def future_value(cash_flow,interest_rate,num_of_yrs)-> float:
-    """Return the future value of cash_flow expected num_yrs from now discounted at interest_rate.
+    """Return the future value of cash_flow expected num_yrs from now
+    discounted at interest_rate.
+    
     >>> future_value(5000, 0.10, 1)
     5500
     >>> future_value(1000, 0.08, 2)    
