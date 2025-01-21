@@ -147,16 +147,26 @@ def total_cost(q,a,b)-> float:
 
 help(total_cost)
 
-print("Testing my Examples for Exercise 1d.")
+print("#" + 50*"-")
+print("Testing my Examples for Exercise 4.")
 
-print(total_cost(5, 300, 4000))
-#11500
+print("#" + 50*"-")
+print("Exercise 4, Example 1:")
+print("Evaluating total_cost(5, 300, 4000)")
+print("Expected: " + str(11500))
+print("Got: " + str(total_cost(5, 300, 4000)))
 
-print(total_cost(6, 650, 2300))        
-#25700
+print("#" + 50*"-")
+print("Exercise 4, Example 2:")
+print("Evaluating total_cost(6, 650, 2300)")
+print("Expected: " + str(25700))
+print("Got: " + str(total_cost(6, 650, 2300)))
 
-print(total_cost(3, 420, 3500))
-#7280
+print("#" + 50*"-")
+print("Exercise 4, Example 3:")
+print("Evaluating total_cost(3, 420, 3500)")
+print("Expected: " + str(7280))
+print("Got: " + str(total_cost(3, 420, 3500)))
 
 
 # Exercise 5
@@ -201,7 +211,7 @@ print("Expected: " + str(20480))
 print("Got: " + str(CESutility(20, 20, 0.10)))
 
 print("#" + 50*"-")
-print("Exercise 3, Example 1:")
+print("Exercise 5, Example 3:")
 print("Evaluating CESutility(30, 30, 0.2)")
 print("Expected: " + str(960))
 print("Got: " + str(CESutility(30, 30, 0.2)))
