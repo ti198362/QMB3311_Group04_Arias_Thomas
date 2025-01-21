@@ -61,7 +61,7 @@ print(total_cost(q, a, b))
 e 
 
 def CESutility(x,y,r)-> float:
-    return (x**r + y**r)**2
+    return (x**r + y**r)**(1/r)
 
 "Formula to calculate the value of the Constant Elasticity of Substitution\
 utility function, which measures the theoretical degree of satisfaction a\
