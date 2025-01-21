@@ -101,19 +101,30 @@ print(total_revenue(500, 100))
 # 1d.  
 
 def total_cost(q,a,b)-> float:
-    return a*(q**2)+b
+    """Return the total cost incurred by a firm to produce a product.
+    >>> total_cost(4, 600, 5000)
+    14600
+    >>>total_cost(8, 800, 6000)
+    57200
+    >>>total_cost(7, 750, 7000)
+    43750
+    """
+    answer = a*(q**2)+b
+    
+    return answer
 
-"Formula to calculate the total cost incurred by a firm to produce a product."
-"q = the quantity produced."
-"a = the number multiplied by the square of the number of units."
-"b = the fixed cost."
+help(total_cost)
 
-q= 5
-a= 300
-b= 4000
+print("Testing my Examples for Exercise 1d.")
 
+print(total_cost(5, 300, 4000))
+#11500
 
-print(total_cost(q, a, b)) 
+print(total_cost(6, 650, 2300))        
+#25700
+
+print(total_cost(3, 420, 3500))
+#7280
 
 
 # 1e. 
