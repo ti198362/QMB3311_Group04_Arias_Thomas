@@ -2,20 +2,36 @@
 # Authors: Timothy Arias and Destiny Thomas
 # Date: Jan 20 2025
 
-a
+# 1a.
 
-def present_value(dollar_amont_of_the_cashflow,discount_rate,number_of_years)->float:
-    return dollar_amont_of_the_cashflow/(1+discount_rate)**number_of_years
+def present_value(cash_flow: float, interest_rate: float, num_yrs: float) -> float:
+    """Return the present value of cash_flow expected num_yrs from now
+    discounted at interest_rate.
 
-"Formula to calculate the present value of a future of a cash flow."
+    >>> present_value(110, 0.10, 1)
+    100.0
+    >>> present_value(121, 0.10, 2)
+    100.0
+    >>> present_value(1000, 0.)
+    """
+    answer = cash_flow/(1 + interest_rate) ** num_yrs
 
-dollar_amont_of_the_cashflow= 100000
-discount_rate= 0.05
-number_of_years= 3
+    return answer
 
-print(present_value(dollar_amont_of_the_cashflow, discount_rate, number_of_years))
+help(present_value)
 
-b
+present_value(300, 0.30, 3)
+#136.549... 
+
+present_value(200, 0.10, 2)
+#165.289...
+
+present_value(1000, 0.50, 2)
+#444.444...
+
+
+
+# 1b.
 
 def future_value(dollar_amont_of_the_cashflow,discount_rate,number_of_years)-> float:
     return dollar_amont_of_the_cashflow * (1 + discount_rate)**number_of_years
@@ -28,7 +44,8 @@ number_of_years= 3
 
 print(future_value(dollar_amont_of_the_cashflow, discount_rate, number_of_years))
 
-c 
+
+# 1c. 
 
 def total_revenue(units_sold,price)-> float:
     return units_sold * price
@@ -41,7 +58,8 @@ price= 5
 
 print(total_revenue(units_sold, price))
 
-d  
+
+# 1d.  
 
 def total_cost(q,a,b)-> float:
     return a*(q**2)+b
@@ -58,7 +76,8 @@ b= 4000
 
 print(total_cost(q, a, b)) 
 
-e 
+
+# 1e. 
 
 def CESutility(x,y,r)-> float:
     return (x**r + y**r)**2
