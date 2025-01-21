@@ -2,7 +2,7 @@
 # Authors: Timothy Arias and Destiny Thomas
 # Date: Jan 20 2025
 
-# 1a.
+# Exercise 1
 
 def present_value(cash_flow: float, interest_rate: float, num_yrs: float) -> float:
     """Return the present value of cash_flow expected num_yrs from now
@@ -21,19 +21,30 @@ def present_value(cash_flow: float, interest_rate: float, num_yrs: float) -> flo
 
 help(present_value)
 
-print("Testing my Examples for Exercise 1a.")
+print("#" + 50*"-")
+print("Testing my Examples for Exercise 1.")
 
-print(present_value(300, 0.30, 3))
-#136.549... 
+print("#" + 50*"-")
+print("Exercise 1, Example 1:")
+print("Evaluating present_value(300, 0.30, 3)")
+print("Expected: " + str(136.549))
+print("Got: " + str(present_value(300, 0.30, 3)))
 
-print(present_value(200, 0.10, 2))
-#165.289...
+print("#" + 50*"-")
+print("Exercise 1, Example 2:")
+print("Evaluating present_value(200, 0.10, 2)")
+print("Expected: " + str(165.289))
+print("Got: " + str(present_value(200, 0.10, 2))) 
 
-print(present_value(1000, 0.50, 2))
-#444.444...
+print("#" + 50*"-")
+print("Exercise 1, Example 3:")
+print("Evaluating present_value(1000, 0.50, 2)")
+print("Expected: " + str(444.444))
+print("Got: " + str(present_value(1000, 0.50, 2)))
 
 
-# 1b.
+
+# Exercise 2
 
 def future_value(cash_flow,interest_rate,num_of_yrs)-> float:
     """Return the future value of cash_flow expected num_yrs from now
@@ -52,20 +63,30 @@ def future_value(cash_flow,interest_rate,num_of_yrs)-> float:
 
 help(future_value)
 
-print("Testing my Examples for Exercise 1b.")
 
-print(future_value(200, 0.10, 4))
-#292.820...
+print("#" + 50*"-")
+print("Testing my Examples for Exercise 2.")
 
-print(future_value(450, 0.05, 6))
-#603.043...
+print("#" + 50*"-")
+print("Exercise 2, Example 1:")
+print("Evaluating present_value(200, 0.10, 4)")
+print("Expected: " + str(292.820))
+print("Got: " + str(future_value(200, 0.10, 4)))
 
-print(future_value(950, 0.08, 2))
-#1108.080...
+print("#" + 50*"-")
+print("Exercise 2, Example 2:")
+print("Evaluating present_value(450, 0.05, 6)")
+print("Expected: " + str(603.043))
+print("Got: " + str(future_value(450, 0.05, 6)))
+
+print("#" + 50*"-")
+print("Exercise 2, Example 3:")
+print("Evaluating present_value(950, 0.08, 2)")
+print("Expected: " + str(1108.080))
+print("Got: " + str(future_value(950, 0.08, 2)))
 
 
-
-# 1c. 
+# Exercise 3 
 
 def total_revenue(units_sold, price)-> float:
     """Return the total revenue earned by a firm selling units_sold of a product
@@ -86,19 +107,30 @@ def total_revenue(units_sold, price)-> float:
 
 help(total_revenue)
 
-print("Testing my Examples for Exercise 1c.")
 
-print(total_revenue(50, 20))
-#1000
+print("#" + 50*"-")
+print("Testing my Examples for Exercise 3.")
 
-print(total_revenue(120, 60))
-#7200
+print("#" + 50*"-")
+print("Exercise 3, Example 1:")
+print("Evaluating total_revenue(50, 20)")
+print("Expected: " + str(1000))
+print("Got: " + str(total_revenue(50, 20)))
 
-print(total_revenue(500, 100))
-#50000
+print("#" + 50*"-")
+print("Exercise 3, Example 2:")
+print("Evaluating total_revenue(120, 60)")
+print("Expected: " + str(7200))
+print("Got: " + str(total_revenue(120, 60)))
+
+print("#" + 50*"-")
+print("Exercise 3, Example 3:")
+print("Evaluating total_revenue(500, 100)")
+print("Expected: " + str(50000))
+print("Got: " + str(total_revenue(500, 100)))
 
 
-# 1d.  
+# Exercise 4 
 
 def total_cost(q,a,b)-> float:
     return a*(q**2)+b
@@ -116,7 +148,7 @@ b= 4000
 print(total_cost(q, a, b)) 
 
 
-# 1e. 
+# Exercise 5
 
 def CESutility(x, y, r)-> float:
     """Returns the value of the Constant Elasticity of Substitution using the
@@ -141,14 +173,24 @@ def CESutility(x, y, r)-> float:
 
 help(CESutility)
 
-print("Testing my Examples for Exercise 1e.")
 
-print(CESutility(10, 10, 0.5))
-#40
+print("#" + 50*"-")
+print("Testing my Examples for Exercise 5.")
 
-print(CESutility(20, 20, 0.10))
-#20480
+print("#" + 50*"-")
+print("Exercise 5, Example 1:")
+print("Evaluating CESutility(10, 10, 0.5)")
+print("Expected: " + str(40))
+print("Got: " + str(CESutility(10, 10, 0.5)))
 
-print(CESutility(30, 30, 0.20))
-#960
+print("#" + 50*"-")
+print("Exercise 5, Example 2:")
+print("Evaluating CESutility(20, 20, 0.10)")
+print("Expected: " + str(20480))
+print("Got: " + str(CESutility(20, 20, 0.10)))
 
+print("#" + 50*"-")
+print("Exercise 3, Example 1:")
+print("Evaluating CESutility(30, 30, 0.2)")
+print("Expected: " + str(960))
+print("Got: " + str(CESutility(30, 30, 0.2)))
