@@ -35,16 +35,34 @@ print(present_value(1000, 0.50, 2))
 
 # 1b.
 
-def future_value(dollar_amont_of_the_cashflow,discount_rate,number_of_years)-> float:
-    return dollar_amont_of_the_cashflow * (1 + discount_rate)**number_of_years
+def future_value(cash_flow,interest_rate,num_of_yrs)-> float:
+    """Return the future value of cash_flow expected num_yrs from now
+    discounted at interest_rate.
+    
+    >>> future_value(5000, 0.10, 1)
+    5500
+    >>> future_value(1000, 0.08, 2)    
+    1166.4
+    >>> future_value(6500, 0.05, 9)
+    10083.63 
+    """       
+    answer = cash_flow * (1 + interest_rate) ** num_of_yrs
 
-"Formula to calculate the future value of a present cash flow."
+    return answer
 
-dollar_amont_of_the_cashflow= 100000
-discount_rate= 0.05
-number_of_years= 3
+help(future_value)
 
-print(future_value(dollar_amont_of_the_cashflow, discount_rate, number_of_years))
+print("Testing my Examples for Exercise 1a.")
+
+print(future_value(200, 0.10, 4))
+#292.820...
+
+print(future_value(450, 0.05, 6))
+#603.043...
+
+print(future_value(950, 0.08, 2))
+#1108.080...
+
 
 
 # 1c. 
