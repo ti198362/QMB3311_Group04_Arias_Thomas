@@ -52,7 +52,7 @@ def future_value(cash_flow,interest_rate,num_of_yrs)-> float:
 
 help(future_value)
 
-print("Testing my Examples for Exercise 1a.")
+print("Testing my Examples for Exercise 1b.")
 
 print(future_value(200, 0.10, 4))
 #292.820...
