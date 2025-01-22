@@ -42,9 +42,13 @@ def CESutility_valid(x, y, r)-> float:
     
     >>> (CESutility_valid(5, 5, 0.20))
     160
-    >>> (CESutility_valid(-10, 10, 0.10))
+    >>> (CESutility_valid(-10, 10, -0.10))
+    Error: x should be a non-negative number.
+    Error: r should be a strictly positive number.
     None
-    >>> (CESutility_valid(5, 5, -0.20))
+    
+    >>> (CESutility_valid(5, -5, 0.20))
+    Error: y should be a non-negative number.
     None
     """
     if x >= 0 and y >=0 and r > 0:
@@ -52,14 +56,13 @@ def CESutility_valid(x, y, r)-> float:
         return answer
     if x < 0:
         print("Error: x should be a non-negative number.")
-        return "None" 
     if y < 0:
         print("Error: y should be a non-negative number.")
-        return "None"
     if r <= 0:
-        print ("Error: r should be a strictly positive number.")
-        return "None" 
-
+       print ("Error: r should be a strictly positive number.")
+    return None
+        
+                 
 help(CESutility_valid)
 
 
@@ -85,15 +88,20 @@ print("Got: " + str(CESutility_valid(5, 5, 0.2)))
 
 print("#" + 50*"-")
 print("Exercise 1, Example 2:")
-print("Evaluating CESutility_valid(-10, -10, 0.5)")
-print("Expected: " + str("None"))
-print("Got: " + str(CESutility_valid(-10, 10, 0.5)))
+print("Evaluating CESutility_valid(-10, 10, -0.5)")
+print("Expected: " + str(None))
+print("Got: " + str(CESutility_valid(-10, 10, -0.5)))
 
 print("#" + 50*"-")
 print("Exercise 1, Example 3:")
-print("Evaluating CESutility_valid(5, 5, -0.2)")
-print("Expected: " + str("None"))
-print("Got: " + str(CESutility_valid(5, 5, -0.2)))
+print("Evaluating CESutility_valid(5, -5, 0.2)")
+print("Expected: " + str(None))
+print("Got: " + str(CESutility_valid(5, -5, 0.2)))
+
+
+print("#" + 50*"-")
+print("Testing my Examples for Exercise 2.")
+
 
 
 
