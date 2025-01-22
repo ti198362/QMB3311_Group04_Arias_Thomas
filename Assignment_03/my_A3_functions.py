@@ -56,8 +56,7 @@ def CESutility_valid(x, y, r)-> float:
         print("Error: y should be a non-negative number.")
     if r <= 0:
        print ("Error: r should be a strictly positive number.")
-    return None
-        
+    return None  
                  
 help(CESutility_valid)
 
