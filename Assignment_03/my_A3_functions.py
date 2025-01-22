@@ -21,12 +21,9 @@
 
 # Boolean
 
-
-
 ##################################################
 # Function Definitions
 ##################################################
-
 
 #Exercise 1
 
@@ -125,6 +122,8 @@ help(CESutility_in_budget)
 # Run the examples to test these functions
 ##################################################
 
+# Exercise 1 Examples
+
 print("#" + 50*"-")
 print("Testing my Examples for Exercise 1.")
 
@@ -146,6 +145,7 @@ print("Evaluating CESutility_valid(5, -5, 0.2)")
 print("Expected: " + str(None))
 print("Got: " + str(CESutility_valid(5, -5, 0.2)))
 
+# Exercise 2 Examples
 
 print("#" + 50*"-")
 print("Testing my Examples for Exercise 2.")
@@ -171,5 +171,11 @@ print("Got: " + str(CESutility_in_budget(15, 20, 0.20, 3, 9, 224)))
 
 print("#" + 50*"-")
 print("Testing my Examples for Exercise 3.")
+
+# Exercise 3 Examples
+
+
+
+# Exercise 4 Example
 
 
