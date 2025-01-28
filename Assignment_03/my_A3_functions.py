@@ -122,7 +122,8 @@ def logit(x, b0, b1,)-> float:
     answer= (math.exp(b0 + b1 * x)) / (1 + math.exp((b0 + b1 * x)))
 
     return answer
-
+ 
+help(logit)   
 
 # Exercise 4
 
@@ -138,9 +139,6 @@ def logit_like(yi, xi, b0, b1)-> float:
     
     else:
        return(None)
-   
-    
-print(logit(2, 0.5, 0.8))
 
 help(logit_like)
 
