@@ -19,7 +19,7 @@
 # Import Required Modules
 ##################################################
 
-# Boolean
+
 
 ##################################################
 # Function Definitions
@@ -168,11 +168,10 @@ print("Expected: " + str(None))
 print("Got: " + str(CESutility_in_budget(15, 20, 0.20, 3, 9, 224)))
 
 
-print("#" + 50*"-")
-print("Testing my Examples for Exercise 3.")
 
 # Exercise 3 Examples
-
+print("#" + 50*"-")
+print("Testing my Examples for Exercise 3.")
 
 
 # Exercise 4 Example
