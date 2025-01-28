@@ -109,15 +109,19 @@ help(CESutility_in_budget)
 # Exercise 3
 
 def logit(x, b0, b1,)-> float:
-    """Formula to calculate the logit link function"""
+    def logit(x, b0, b1,)-> float:
+    """Formula to calculate the logit link function
     
+    >>>(logit(2, 0.5, 0.8))
+    0.8909
+    >>>(logit(1/2, 4/5, 3/2 ))
+    0.8249
+    >>>(logit(-3, 4, -7))
+    0.999...
+    """
     answer= (math.exp(b0 + b1 * x)) / (1 + math.exp((b0 + b1 * x)))
 
     return answer
-
-print(logit(2, 0.5, 0.8))
-
-help(logit)
 
 
 # Exercise 4
