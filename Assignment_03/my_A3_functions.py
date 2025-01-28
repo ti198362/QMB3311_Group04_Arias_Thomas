@@ -117,7 +117,7 @@ def logit(x, b0, b1,)-> float:
     >>>(logit(1/2, 4/5, 3/2 ))
     0.8249
     >>>(logit(-3, 4, -7))
-    0.999...
+    0.9999...
     """
     answer= (math.exp(b0 + b1 * x)) / (1 + math.exp((b0 + b1 * x)))
 
@@ -201,6 +201,23 @@ print("Got: " + str(CESutility_in_budget(15, 20, 0.20, 3, 9, 224)))
 print("#" + 50*"-")
 print("Testing my Examples for Exercise 3.")
 
+print("#" + 50*"-")
+print("Exercise 3, Example 1:")
+print("Evaluating logit(2, 0.5 ,0.8)")
+print("Expected: " + str(0.8909))
+print("Got: " + str(logit(2, 0.5 ,0.8)))
+
+print("#" + 50*"-")
+print("Exercise 3, Example 2:")
+print("Evaluating logit(1/2, 4/5, 3/2 )")
+print("Expected: " + str(0.8249))
+print("Got: " + str(logit(1/2, 4/5, 3/2)))
+
+print("#" + 50*"-")
+print("Exercise 3, Example 3:")
+print("Evaluating logit(-3, 4, -7)")
+print("Expected: " + str(0.9999...))
+print("Got: " + str(logit(-3, 4, -7)))
 
 # Exercise 4 Example
 
