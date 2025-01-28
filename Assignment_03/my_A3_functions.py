@@ -108,15 +108,37 @@ help(CESutility_in_budget)
 
 # Exercise 3
 
+def logit(x, b0, b1,)-> float:
+    """Formula to calculate the logit link function"""
+    
+    answer= (math.exp(b0 + b1 * x)) / (1 + math.exp((b0 + b1 * x)))
 
+    return answer
 
+print(logit(2, 0.5, 0.8))
+
+help(logit)
 
 
 # Exercise 4
 
+def logit_like(yi, xi, b0, b1)-> float:
+    """For each i observation yi equals 1 if the event occurred
+   For each i observation yi equals 0 if the event occurred"""
+   
+    if yi == 1:
+        return(logit)
+        
+    if y1 == 0:
+        return(1-logit)
+    
+    else:
+       return(None)
+   
+    
+print(logit(2, 0.5, 0.8))
 
-
-
+help(logit_like)
 
 
 ##################################################
