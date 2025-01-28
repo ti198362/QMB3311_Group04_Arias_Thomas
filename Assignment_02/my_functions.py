@@ -15,6 +15,9 @@ def present_value(cash_flow: float, interest_rate: float, num_yrs: float) -> flo
     >>> present_value(1000, 0.50, 2)
     444.444
     """
+    
+    # needs either a precondition or checks to make sure that variables are not negative (-1)
+    
     answer = cash_flow/(1 + interest_rate) ** num_yrs
 
     return answer
@@ -57,6 +60,9 @@ def future_value(cash_flow,interest_rate,num_of_yrs)-> float:
     >>> future_value(6500, 0.05, 9)
     10083.63 
     """       
+    
+    # needs either a precondition or checks to make sure that variables are not negative (-1)
+    
     answer = cash_flow * (1 + interest_rate) ** num_of_yrs
 
     return answer
@@ -100,6 +106,8 @@ def total_revenue(units_sold, price)-> float:
     50000   
     """
     
+    # needs either a precondition or checks to make sure that variables are not negative (-1)
+    
     answer = units_sold * price
     
     return answer
@@ -141,6 +149,9 @@ def total_cost(q,a,b)-> float:
     >>>total_cost(7, 750, 7000)
     43750
     """
+    
+    # needs either a precondition or checks to make sure that variables are not negative (-1)
+    
     answer = a*(q**2)+b
     
     return answer
@@ -188,6 +199,9 @@ def CESutility(x, y, r)-> float:
     >>> (CESutility(30, 30, 0.20))
     960
     """
+    
+    # needs either a precondition or checks to make sure that variables are not negative (-1)
+    
     answer = (x ** r + y ** r) ** (1/r)
    
     return answer
