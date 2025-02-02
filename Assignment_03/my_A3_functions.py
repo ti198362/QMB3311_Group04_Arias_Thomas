@@ -131,11 +131,11 @@ def logit_like(yi, xi, b0, b1) -> float:
     For each i observation yi equals 0 if the event did not occurred 
 
     >>>(logit_like(1, 2, 0.5, 0.8))
-    
-    >>>(logit_like(0, 4, 0.9, 3))
-
-    >>>(logit_like(-1, 3, 1/2, -2))
-
+    -0.1155
+    >>>(logit_like(0, 4, 0.7, 1/2))
+    -2.7650
+    >>>(logit_like(-1, 3, 1/2, 2))
+    None
 
    """
     p=logit(xi, b0, b1,)
@@ -148,10 +148,6 @@ def logit_like(yi, xi, b0, b1) -> float:
 
     else:
         return (None)
-
-
-help(logit_like)
-
 
 ##################################################
 # Run the examples to test these functions
@@ -228,5 +224,24 @@ print("Expected: " + str(0.9999...))
 print("Got: " + str(logit(-3, 4, -7)))
 
 # Exercise 4 Example
+print("#" + 50*"-")
+print("Testing my Examples for Exercise 4.")
 
+print("#" + 50*"-")
+print("Exercise 4, Example 1:")
+print("Evaluating logit_like(1, 2, 0.5 ,0.8)")
+print("Expected: " + str(-0.1155))
+print("Got: " + str(logit_like(1 , 2 , 0.5, 0.8)))
+ 
+print("#" + 50*"-")
+print("Exercise 4, Example 2:")
+print("Evaluating logit_like(1/2, 4/5, 3/2 )")
+print("Expected: " + str(-2.7650))
+print("Got: " + str(logit_like(0, 4, 0.7, 1/2)))
+
+print("#" + 50*"-")
+print("Exercise 4, Example 3:")
+print("Evaluating logit_like(-1, 3, 1/2, 2)")
+print("Expected: " + str(None))
+print("Got: " + str(logit_like(-1, 3, 1/2, 2)))
 
