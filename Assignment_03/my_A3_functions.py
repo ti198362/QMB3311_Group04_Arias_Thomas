@@ -127,20 +127,34 @@ help(logit)
 
 # Exercise 4
 
-def logit_like(yi, xi, b0, b1)-> float:
+def logit_like(yi, xi, b0, b1) -> float:
     """For each i observation yi equals 1 if the event occurred
-   For each i observation yi equals 0 if the event occurred"""
-   
+    For each i observation yi equals 0 if the event did not occurred 
+
+    >>>(logit_like(1, 2, 0.5, 0.8))
+
+    >>>(logit_like(0, 4, 0.9, 3))
+
+    >>>(logit_like(1, 3, 1/2, -2))
+
+
+   """
+
     if yi == 1:
-        return(logit)
-        
-    if y1 == 0:
-        return(1-logit)
-    
+        return logit(xi, b0, b1)
+
+    elif y1 == 0:
+        return logit(1-(xi, b0, b1))
+
     else:
-       return(None)
+        return (None)
+
 
 help(logit_like)
+
+print(logit_like(1, 2, 0.5, 0.8))
+print(logit_like(-1, 4, 0.9, 3))
+print(logit_like(0, 3, 1/2, -2))
 
 
 ##################################################
