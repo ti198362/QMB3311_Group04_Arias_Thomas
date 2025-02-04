@@ -220,7 +220,7 @@ print("Got: " + str(logit(1/2, 4/5, 3/2)))
 print("#" + 50*"-")
 print("Exercise 3, Example 3:")
 print("Evaluating logit(-3, 4, -7)")
-print("Expected: " + str(0.9999...))
+print("Expected: " + str(0.9999))
 print("Got: " + str(logit(-3, 4, -7)))
 
 # Exercise 4 Example
