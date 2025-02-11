@@ -29,7 +29,22 @@ import math
 
 #Exercise 1
 
-def CESutility_valid(x, y, r)-> float:
+def CESutility(good_x: float, good_y: float, r: float) -> float:
+    """Calculate the constant elasticity of subsitution utility function for two goods.
+    
+    >>> CESutility(3, 4, 2)
+    5.0
+    >>> CESutility(1, 1, 2)
+    1.4142135623730951
+    >>> CESutility(3**0.5, 4**0.5, 4)
+    2.23606797749979
+    """
+    
+    utility = (good_x**r + good_y**r)**(1/r)
+    return utility
+
+
+def CESutility_valid(x, y, r)-> float: # expected input (-1)
     """Returns the value of the Constant Elasticity of Substitution using the
     utility function, which measure the theoretical degree of satisfaction a
     consumer may get from two goods.
@@ -50,7 +65,7 @@ def CESutility_valid(x, y, r)-> float:
     None
     """
     if x >= 0 and y >= 0 and r > 0:
-        answer = (x ** r + y ** r) ** (1/r)
+        answer = CESutility(x, y, r)
         return answer
     if x < 0:
         print("Error: x should be a non-negative number.")
@@ -65,7 +80,7 @@ help(CESutility_valid)
 
 # Exercise 2
 
-def CESutility_in_budget(x, y, r, p_x, p_y, w)-> float:
+def CESutility_in_budget(x, y, r, p_x, p_y, w)-> float:# expected input (-1)
     """Returns the value of the Constant Elasticity of Substitution using the
     utility function, which measure the theoretical degree of satisfaction a
     consumer may get from two goods within a budget constraint.
@@ -90,25 +105,23 @@ def CESutility_in_budget(x, y, r, p_x, p_y, w)-> float:
     Error: The price of the basket of goods is greater than the consumer's budget constraint.
     None
     """
-    if x >= 0 and y >= 0 and r > 0 and w >= ((p_x * x) + (p_y * y)):
-        answer = (x ** r + y ** r) ** (1/r)
-        return answer
-    if x < 0:
-        print("Error: x should be a non-negative number.")
-    if y < 0:
-        print("Error: y should be a non-negative number.")
-    if r <= 0:
-       print ("Error: r should be a strictly positive number.")
-    if w <= (p_x * x) + (p_y * y):
-        print ("Error: The price of the basket of goods is greater than the consumer's budget constraint.")
-    return None
+    if (p_x <= 0) or (p_y <= 0):
+        print('Error in CESutility_in_budget: prices cannot be negative or zero.')
+        return None
+    elif p_x*x + p_y*y > w:
+        print('Error in CESutility_in_budget: budget constraint not satisfied.')
+        return None
+    else :
+       # If budget constraint is satisfied, call the CESutility_valid function. 
+        utility = CESutility_valid(x, y, r)
+        return utility # (-3)
 
 help(CESutility_in_budget)
 
 
 # Exercise 3
 
-def logit(x, b0, b1,)-> float:
+def logit(x, b0, b1,)-> float: # expected input (-1)
     """Formula to calculate the logit link function
     
     >>>(logit(2, 0.5, 0.8))
@@ -126,7 +139,7 @@ help(logit)
 
 # Exercise 4
 
-def logit_like(yi, xi, b0, b1) -> float: 
+def logit_like(yi, xi, b0, b1) -> float: # expected input (-1)
     """For each i observation yi equals 1 if the event occurred
     For each i observation yi equals 0 if the event did not occurred 
 
@@ -138,16 +151,16 @@ def logit_like(yi, xi, b0, b1) -> float:
     None
 
    """
-    p=logit(xi, b0, b1,)
+    p=logit(xi, b0, b1) #removed extra comma
     
     if yi == 1:
         return math.log(p)
 
     elif yi == 0:
         return math.log(1-p)
-
     else:
-        return (None)
+        return None
+    # could have printed a message warning them of the issue.
 
 ##################################################
 # Run the examples to test these functions
