@@ -33,7 +33,40 @@ import math
 
 
 # Exercise 2
+def logit(x, b0, b1):
+    """Logistic function."""
+    answer= (math.exp(b0 + b1 * x)) / (1 + math.exp((b0 + b1 * x)))
+    return answer
 
+def logit_like(yi, xi, b0, b1):
+    """Computes the log-likelihood for a single observation."""
+    p = logit(xi, b0, b1)
+    if yi not in[0,1]:
+        print("Error:Invalid yi value. Must be 0 or 1.")
+        return None
+    if yi == 1:
+        return math.log(p)
+    else:
+        return math.log(1 - p)
+
+def logit_like_sum(y, x, b0, b1):
+    """Computes the sum of log-likelihoods across all observations.
+    
+    >>>logit_like_sum([1, 0, 1], [2, 4, -3], 0.5, 0.8)
+    -5.8793
+    >>>logit_like_sum([0, 0, 1], [10/11, 2/4, -3], 3, 0.2)
+    -6.4534
+    >>>logit_like_sum([3, 0, 1], [1, 4/3, -3], 1, -0.8)
+    None
+    
+    """
+    total = 0
+    for i in range(len(y)):
+        log_likelihood = logit_like(y[i], x[i], b0, b1)
+        if log_likelihood is None:
+            return None  
+        total += log_likelihood
+    return total
 
 # Exercise 3
 
