@@ -67,6 +67,53 @@ def logit_like_grad(y: list, x: list, beta_0: float, beta_1: float) -> float:
 
 # Exercise 4
 
+def CESutility_multi(x: list, a: list, r: float) -> float:
+    """Returns the value of the Constant Elasticity of Substitution using the
+    utility function, which measure the theoretical degree of satisfaction a
+    consumer may get from more than two goods.
+
+    x represents good one.
+    y represent good two.
+    r is the parameter that represents the degree to which the goods 
+    are complements or substitutes.
+    
+    >>> CESutility_multi([2, 4, 6], [8, 10, 12], 0.2)
+    353.8099...
+    >>> CESutility_multi([-2, 4, 6], [8, 10, 12], 0)
+    Error: Elements of x should be non-negative numbers only.
+    Error: r should be a strictly positive number.
+    None
+    >>> CESutility_multi([2, 4, 6], [8, 10, 12, 14], 0.2)
+    Error: x and a should have the same number of elements.    
+    None
+    """    
+    Error = False
+    if len(x) != len(a):
+        print("Error: x and a should have the same number of elements.")
+        Error = True
+    
+    if Error:
+        return None
+    
+    for i in range(len(x)):
+        if x[i] < 0:
+            print("Error: Elements of x should be non-negative numbers only.")
+            Error = True       
+        if a[i] < 0:
+            print("Error: Elements of a should be non-negative numbers only.")
+            Error = True     
+    if r <= 0:
+        print("Error: r should be a strictly positive number.")
+        Error = True
+        
+    if Error:
+        return None
+    
+    inside = 0
+    for i in range(len(x)):
+        inside += (a[i] ** (1 - r)) * (x[i] ** r)
+    return inside ** (1 / r)
+
 
 
 # Only function definitions above this point. 
@@ -75,12 +122,45 @@ def logit_like_grad(y: list, x: list, beta_0: float, beta_1: float) -> float:
 ##################################################
 # Test the examples in your docstrings
 ##################################################
+# Exercise 1 Example
+
+
+# Exercise 2 Example
+
+
+# Exercise 3 Example
+
+
+# Exercise 4 Example
+print("#" + 50*"-")
+print("Testing my Examples for Exercise 4.")
+
+print("#" + 50*"-")
+print("Exercise 4, Example 1:")
+print("Evaluating CESutility_multi([2, 4, 6], [8, 10, 12], 0.5)")
+print("Expected: " + str(353.81))
+print("Got: " + str(CESutility_multi([2, 4, 6], [8, 10, 12], 0.5)))
+
+print("#" + 50*"-")
+print("Exercise 4, Example 1:")
+print("Evaluating CESutility_multi([-2, 4, 6], [8, 10, 12], 0)")
+print("Expected: " + str(None))
+print("Got: " + str(CESutility_multi([-2, 4, 6], [8, 10, 12], 0)))
+
+print("#" + 50*"-")
+print("Exercise 4, Example 1:")
+print("Evaluating CESutility_multi([2, 4, 6], [8, 10, 12, 14], 0.5)")
+print("Expected: " + str(None))
+print("Got: " + str(CESutility_multi([2, 4, 6], [8, 10, 12, 14], 0.5)))
+
+
+
 
 
 # Question 2: Test using the doctest module. 
 
 
-# Make sure to include exampes in your docstring
+# Make sure to include examples in your docstring
 # with the proper formatting. 
 
 # Test all functions with three examples each. 
