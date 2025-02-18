@@ -30,7 +30,7 @@ import math
 
 # Exercise 1
 
-def matrix_inverse(mat_in: list) -> list:
+def matrix_inverse(mat_in: np.ndarray) -> np.ndarray:
     """Function that calculates the inverse of a two-by-two matrix
     
     Inputs: mat_in(numpy.array): A 2x2 NumPy array.
