@@ -161,6 +161,26 @@ def CESutility_multi(x: list, a: list, r: float) -> float:
 
 # Exercise 2 Example
 
+print("#" + 50*"-")
+print("Testing my Examples for Exercise 2.")
+
+print("#" + 50*"-")
+print("Exercise 1, Example 1:")
+print("Evaluating logit_like_sum([1, 0, 1], [2, 4, -3], 0.5, 0.8)")
+print("Expected: " + str(-5.8793))
+print("Got: " + str(logit_like_sum([1, 0, 1], [2, 4, -3], 0.5, 0.8)))
+
+print("#" + 50*"-")
+print("Exercise 1, Example 2:")
+print("Evaluating logit_like_sum([0, 0, 1], [10/11, 2/4, -3], 3, 0.2)")
+print("Expected: " + str(-6.4534))
+print("Got: " + str(logit_like_sum([0, 0, 1], [10/11, 2/4, -3], 3, 0.2)))
+
+print("#" + 50*"-")
+print("Exercise 1, Example 3:")
+print("Evaluating logit_like_sum([3, 0, 1], [1, 4/3, -3], 1, -0.8)")
+print("Expected: " + str(None))
+print("Got: " + str(logit_like_sum([3, 0, 1], [1, 4/3, -3], 1, -0.8)))
 
 # Exercise 3 Example
 
