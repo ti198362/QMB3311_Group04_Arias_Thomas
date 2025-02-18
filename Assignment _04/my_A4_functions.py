@@ -69,7 +69,7 @@ def logit_like_grad(y: list, x: list, beta_0: float, beta_1: float) -> float:
 
 def CESutility_multi(x: list, a: list, r: float) -> float:
     """Returns the value of the Constant Elasticity of Substitution using the
-    utility function, which measure the theoretical degree of satisfaction a
+    utility function, which measures the theoretical degree of satisfaction a
     consumer may get from more than two goods.
 
     x is a vector of quantities of goods consumed.
@@ -114,6 +114,7 @@ def CESutility_multi(x: list, a: list, r: float) -> float:
     for i in range(len(x)):
         inside += (a[i] ** (1 - r)) * (x[i] ** r)
     return inside ** (1 / r)
+
 
 help (CESutility_multi)
 
