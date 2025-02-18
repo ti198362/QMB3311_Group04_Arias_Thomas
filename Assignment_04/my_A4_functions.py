@@ -69,7 +69,6 @@ def matrix_inverse(mat_in):
         return mat_out.astype(int)
     return mat_out
 
-<<<<<<< HEAD
 help(matrix_inverse)
 
 # Exercise 2
@@ -84,7 +83,7 @@ def logit_like(yi, xi, b0, b1):
     p = logit(xi, b0, b1)
     if yi not in[0,1]:
         print("Error: Invalid y[i] value. Must be 0 or 1.")
-=======
+
 help(matrix_inverse)    
 
 # Exercise 2
@@ -136,7 +135,6 @@ def logit_like(y, x, b0, b1) -> float:
     
     if y not in[0,1]:
         print("Error:Invalid y value. Must be 0 or 1.")
->>>>>>> 8a05e3437364210918004ed0201353786aa542df
         return None
    
     p = logit(x, b0, b1)
@@ -177,11 +175,6 @@ def logit_like_sum(y, x, b0, b1):
     return total
 
 help(logit_like_sum)
-<<<<<<< HEAD
-=======
-
-# Exercise 3
->>>>>>> 8a05e3437364210918004ed0201353786aa542df
 
 
 # Exercise 3
