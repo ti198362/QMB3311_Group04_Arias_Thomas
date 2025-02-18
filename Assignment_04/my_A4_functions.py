@@ -27,7 +27,6 @@ import math
 # Function Definitions
 ##################################################
 
-# Only function definitions here - no other calculations. 
 
 # Exercise 1
 
@@ -234,6 +233,16 @@ print("Expected: " + str(None))
 print("Got: " + str(logit_like_sum([3, 0, 1], [1, 4/3, -3], 1, -0.8)))
 
 # Exercise 3 Examples
+print("#" + 50*"-")
+print("Testing my Examples for Exercise 3.")
+
+print("#" + 50*"-")
+print("Exercise 3, Example 1:")
+print("Evaluating CESutility_multi([2, 4, 6], [8, 10, 12], 0.5)")
+print("Expected: " + str(353.81))
+print("Got: " + str(CESutility_multi([2, 4, 6], [8, 10, 12], 0.5)))
+
+
 
 
 # Exercise 4 Examples
@@ -247,13 +256,13 @@ print("Expected: " + str(353.81))
 print("Got: " + str(CESutility_multi([2, 4, 6], [8, 10, 12], 0.5)))
 
 print("#" + 50*"-")
-print("Exercise 4, Example 1:")
+print("Exercise 4, Example 2:")
 print("Evaluating CESutility_multi([-2, 4, 6], [8, 10, 12], 0)")
 print("Expected: " + str(None))
 print("Got: " + str(CESutility_multi([-2, 4, 6], [8, 10, 12], 0)))
 
 print("#" + 50*"-")
-print("Exercise 4, Example 1:")
+print("Exercise 4, Example 3:")
 print("Evaluating CESutility_multi([2, 4, 6], [8, 10, 12, 14], 0.5)")
 print("Expected: " + str(None))
 print("Got: " + str(CESutility_multi([2, 4, 6], [8, 10, 12, 14], 0.5)))
