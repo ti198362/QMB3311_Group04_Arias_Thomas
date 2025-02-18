@@ -90,6 +90,14 @@ def logit_like(yi, xi, b0, b1):
 def logit_like_sum(y, x, b0, b1):
     """Computes the sum of log-likelihoods across all observations.
     
+    Inputs: y: A list or NumPy array of 0s and 1s.
+            x: A list or NumPy array of predictor values.
+            b0: The intercept of the model.
+            b1: The coeffiecient of the model.
+
+    Returns: A float (sum of log-likelihoods)
+             None if any y value is not 0 or 1.
+             
     >>>logit_like_sum([1, 0, 1], [2, 4, -3], 0.5, 0.8)
     -5.8793
     >>>logit_like_sum([0, 0, 1], [10/11, 2/4, -3], 3, 0.2)
