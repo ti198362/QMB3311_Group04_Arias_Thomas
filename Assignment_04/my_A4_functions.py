@@ -301,9 +301,9 @@ print("Got: " + str(matrix_inverse(np.array([[4, 1],[3, 1]]))))
 
 print("#" + 50*"-")
 print("Exercise 1, Example 2:")
-print("Evaluating matrix_inverse(np.array([[1/2, 2], [4/5, -11]]))")
-print("Expected: " + str([[1.5493, 0.2817], [0.1127, -0.0704]]))
-print("Got: " + str(matrix_inverse(np.array([[1/2, 2], [4/5, -11]]))))
+print("Evaluating matrix_inverse(np.array([[2, 4], [1, 2]]))")
+print("Expected: " + str(None))
+print("Got: " + str(matrix_inverse(np.array([[2, 4], [1, 2]]))))
 
 print("#" + 50*"-")
 print("Exercise 1, Example 3:")
