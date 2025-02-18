@@ -72,8 +72,9 @@ def CESutility_multi(x: list, a: list, r: float) -> float:
     utility function, which measure the theoretical degree of satisfaction a
     consumer may get from more than two goods.
 
-    x represents good one.
-    y represent good two.
+    x is a vector of quantities of goods consumed.
+    a is a vector of weighting parameters for each good.
+    i is the subscript that indicates the ith element of each vector
     r is the parameter that represents the degree to which the goods 
     are complements or substitutes.
     
