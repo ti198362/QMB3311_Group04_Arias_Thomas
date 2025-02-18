@@ -30,7 +30,7 @@ import math
 
 # Exercise 1
 
-def matrix_inverse(mat_in):
+def matrix_inverse(mat_in: list) -> list:
     """Function that calculates the inverse of a two-by-two matrix
     
     Inputs: mat_in(numpy.array): A 2x2 NumPy array.
@@ -71,24 +71,10 @@ def matrix_inverse(mat_in):
 
 help(matrix_inverse)
 
-# Exercise 2
-
-def logit(x, b0, b1):
-    """Logistic function."""
-    answer = (math.exp(b0 + b1 * x)) / (1 + math.exp((b0 + b1 * x)))
-    return answer
-
-def logit_like(yi, xi, b0, b1):
-    """Computes the log-likelihood for a single observation."""
-    p = logit(xi, b0, b1)
-    if yi not in[0,1]:
-        print("Error: Invalid y[i] value. Must be 0 or 1.")
-
-help(matrix_inverse)    
 
 # Exercise 2
 
-def logit(x, b0, b1,)-> float: 
+def logit(x: float, b0: float, b1: float) -> float: 
     """Formula to calculate the logit link function
     
     Inputs:
@@ -111,8 +97,9 @@ def logit(x, b0, b1,)-> float:
     return answer
  
 help(logit)   
-  
-def logit_like(y, x, b0, b1) -> float: 
+
+
+def logit_like(y: float, x: float, b0: float, b1: float) -> float: 
     """For each i observation yi equals 1 if the event occurred
     For each i observation yi equals 0 if the event did not occurred
     
@@ -146,7 +133,8 @@ def logit_like(y, x, b0, b1) -> float:
 
 help(logit_like)
 
-def logit_like_sum(y, x, b0, b1):
+
+def logit_like_sum(y: list, x: list, b0: float, b1:float) -> float:
     """Computes the sum of log-likelihoods across all observations.
     
     Inputs: y: A list or NumPy array of 0s and 1s.
