@@ -157,7 +157,26 @@ def CESutility_multi(x: list, a: list, r: float) -> float:
 # Test the examples in your docstrings
 ##################################################
 # Exercise 1 Example
+print("#" + 50*"-")
+print("Testing my Examples for Exercise 1.")
 
+print("#" + 50*"-")
+print("Exercise 1, Example 1:")
+print("Evaluating matrix_inverse(np.array([[4, 1],[3, 1]]))")
+print("Expected: " + str([[1, -1], [-3, 4]]))
+print("Got: " + str(matrix_inverse(np.array([[4, 1],[3, 1]]))))
+
+print("#" + 50*"-")
+print("Exercise 1, Example 2:")
+print("Evaluating matrix_inverse(np.array([[1/2, 2], [4/5, -11]]))")
+print("Expected: " + str([[1.5493, 0.2817], [0.1127, -0.0704]]))
+print("Got: " + str(matrix_inverse(np.array([[1/2, 2], [4/5, -11]]))))
+
+print("#" + 50*"-")
+print("Exercise 1, Example 3:")
+print("Evaluating matrix_inverse(np.array([[2, 3, 1], [5, 4, 2]])")
+print("Expected: " + str(None))
+print("Got: " + str(matrix_inverse(np.array([[2, 3, 1], [5, 4, 2]]))))
 
 # Exercise 2 Example
 
@@ -185,6 +204,8 @@ print("Got: " + str(logit_like_sum([3, 0, 1], [1, 4/3, -3], 1, -0.8)))
 # Exercise 3 Example
 
 
+
+
 # Exercise 4 Example
 print("#" + 50*"-")
 print("Testing my Examples for Exercise 4.")
@@ -206,9 +227,6 @@ print("Exercise 4, Example 1:")
 print("Evaluating CESutility_multi([2, 4, 6], [8, 10, 12, 14], 0.5)")
 print("Expected: " + str(None))
 print("Got: " + str(CESutility_multi([2, 4, 6], [8, 10, 12, 14], 0.5)))
-
-
-
 
 
 # Question 2: Test using the doctest module. 
