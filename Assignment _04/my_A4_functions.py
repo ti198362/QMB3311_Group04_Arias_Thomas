@@ -115,24 +115,23 @@ def CESutility_multi(x: list, a: list, r: float) -> float:
         inside += (a[i] ** (1 - r)) * (x[i] ** r)
     return inside ** (1 / r)
 
-
-
-# Only function definitions above this point. 
+help (CESutility_multi)
 
 
 ##################################################
 # Test the examples in your docstrings
 ##################################################
-# Exercise 1 Example
+
+# Exercise 1 Examples
 
 
-# Exercise 2 Example
+# Exercise 2 Examples
 
 
-# Exercise 3 Example
+# Exercise 3 Examples
 
 
-# Exercise 4 Example
+# Exercise 4 Examples
 print("#" + 50*"-")
 print("Testing my Examples for Exercise 4.")
 
@@ -153,22 +152,6 @@ print("Exercise 4, Example 1:")
 print("Evaluating CESutility_multi([2, 4, 6], [8, 10, 12, 14], 0.5)")
 print("Expected: " + str(None))
 print("Got: " + str(CESutility_multi([2, 4, 6], [8, 10, 12, 14], 0.5)))
-
-
-
-
-
-# Question 2: Test using the doctest module. 
-
-
-# Make sure to include examples in your docstring
-# with the proper formatting. 
-
-# Test all functions with three examples each. 
-
-# Choose good examples that will test interesting cases. 
-# Make sure they all work correctly. 
-
 
 
 
