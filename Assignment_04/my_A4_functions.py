@@ -33,6 +33,11 @@ import math
 def matrix_inverse(mat_in):
     """Function that calculates the inverse of a two-by-two matrix
     
+    Inputs: mat_in(numpy.array): A 2x2 NumPy array.
+
+    Returns: numpy.array: A 2x2 NumPy array (the inverse of the input matrix).
+             None: None if the matrix is not invertible (determinant = 0).
+    
     >>> matrix_inverse(np.array([[4, 1], [3, 1]]))
     ([[1, -1], [-3, 4]])
     >>> matrix_inverse(np.array([[1/2, 2], [4/5, -11]]))
