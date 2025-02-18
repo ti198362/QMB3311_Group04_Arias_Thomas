@@ -69,23 +69,67 @@ def matrix_inverse(mat_in):
         return mat_out.astype(int)
     return mat_out
 
+help(matrix_inverse)    
+
 # Exercise 2
 
-def logit(x, b0, b1):
-    """Logistic function."""
-    answer= (math.exp(b0 + b1 * x)) / (1 + math.exp((b0 + b1 * x)))
-    return answer
+def logit(x, b0, b1,)-> float: 
+    """Formula to calculate the logit link function
+    
+    Inputs:
+    - x: A numerical predictor value.
+    - b0: A numerical intercept value.
+    - b1: A numerical coefficient value.
 
-def logit_like(yi, xi, b0, b1):
-    """Computes the log-likelihood for a single observation."""
-    p = logit(xi, b0, b1)
-    if yi not in[0,1]:
-        print("Error:Invalid yi value. Must be 0 or 1.")
+    Returns: A float between 0 and 1 (the probability).
+    
+    
+    >>>(logit(2, 0.5, 0.8))
+    0.8909
+    >>>(logit(1/2, 4/5, 3/2 ))
+    0.8249
+    >>>(logit(-3, 4, -7))
+    0.9999...
+    """
+    answer= (math.exp(b0 + b1 * x)) / (1 + math.exp((b0 + b1 * x)))
+
+    return answer
+ 
+help(logit)   
+  
+def logit_like(y, x, b0, b1) -> float: 
+    """For each i observation yi equals 1 if the event occurred
+    For each i observation yi equals 0 if the event did not occurred
+    
+    Inputs: y: A value (0 or 1) representing whether an event occurred.
+            x: A numerical predictor value.
+            b0: A numerical intercept value.
+            b1: A numerical coefficient value.
+
+    Returns: A float (log-likelihood value).
+             None if y is not 0 or 1.
+
+    >>>(logit_like(1, 2, 0.5, 0.8))
+    -0.1155
+    >>>(logit_like(0, 4, 0.7, 1/2))
+    -2.7650
+    >>>(logit_like(-1, 3, 1/2, 2))
+    None
+
+   """
+    
+    if y not in[0,1]:
+        print("Error:Invalid y value. Must be 0 or 1.")
         return None
-    if yi == 1:
+   
+    p = logit(x, b0, b1)
+   
+    if y == 1:
         return math.log(p)
     else:
         return math.log(1 - p)
+
+help(logit_like)
 
 def logit_like_sum(y, x, b0, b1):
     """Computes the sum of log-likelihoods across all observations.
@@ -96,8 +140,8 @@ def logit_like_sum(y, x, b0, b1):
             b1: The coeffiecient of the model.
 
     Returns: A float (sum of log-likelihoods)
-             None if any y value is not 0 or 1.
-             
+             None if any y value is not 0 or 1
+    
     >>>logit_like_sum([1, 0, 1], [2, 4, -3], 0.5, 0.8)
     -5.8793
     >>>logit_like_sum([0, 0, 1], [10/11, 2/4, -3], 3, 0.2)
@@ -114,6 +158,8 @@ def logit_like_sum(y, x, b0, b1):
             return None  
         total += log_likelihood
     return total
+
+help(logit_like_sum)
 
 # Exercise 3
 
