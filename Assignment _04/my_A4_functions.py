@@ -30,7 +30,39 @@ import math
 # Only function definitions here - no other calculations. 
 
 # Exercise 1
-
+def matrix_inverse(mat_in):
+    """Function that calculates the inverse of a two-by-two matrix
+    
+    >>> matrix_inverse(np.array([[4, 1], [3, 1]]))
+    ([[1, -1], [-3, 4]])
+    >>> matrix_inverse(np.array([[1/2, 2], [4/5, -11]]))
+    ([[1.5493, 0.2817], [0.1127, -0.0704]])
+    >>> matrix_inverse(np.array([[2, 3, 1], [5, 4, 2]]))
+    None
+    
+    """
+    if mat_in.shape != (2, 2):
+        print("Error: Input must be a 2x2 matrix.")
+        return None
+    
+    det = mat_in[0, 0] * mat_in[1, 1] - mat_in[0, 1] * mat_in[1, 0]
+    
+    if det == 0:
+        print("Error: Determinant cannot be zero")
+        return None
+    
+    mat_out = np.zeros((2, 2))
+    
+    for i in range(2):
+        for j in range(2):
+            if i == j:
+                mat_out[i, j] = mat_in[1 - i, 1 - j] / det
+            else:
+                mat_out[i, j] = -mat_in[1 - j, 1 - i] / det
+     
+    if np.all(mat_out == np.floor(mat_out)):
+        return mat_out.astype(int)
+    return mat_out
 
 # Exercise 2
 def logit(x, b0, b1):
@@ -157,6 +189,7 @@ def CESutility_multi(x: list, a: list, r: float) -> float:
 # Test the examples in your docstrings
 ##################################################
 # Exercise 1 Example
+
 print("#" + 50*"-")
 print("Testing my Examples for Exercise 1.")
 
