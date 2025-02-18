@@ -31,12 +31,79 @@ import math
 
 # Exercise 1
 
+def matrix_inverse(mat_in):
+    """Function that calculates the inverse of a two-by-two matrix
+    
+    >>> matrix_inverse(np.array([[4, 1], [3, 1]]))
+    ([[1, -1], [-3, 4]])
+    >>> matrix_inverse(np.array([[1/2, 2], [4/5, -11]]))
+    ([[1.5493, 0.2817], [0.1127, -0.0704]])
+    >>> matrix_inverse(np.array([[2, 3, 1], [5, 4, 2]]))
+    None
+    
+    """
+    if mat_in.shape != (2, 2):
+        print("Error: Input must be a 2x2 matrix.")
+        return None
+    
+    det = mat_in[0, 0] * mat_in[1, 1] - mat_in[0, 1] * mat_in[1, 0]
+    
+    if det == 0:
+        print("Error: Determinant cannot be zero")
+        return None
+    
+    mat_out = np.zeros((2, 2))
+    
+    for i in range(2):
+        for j in range(2):
+            if i == j:
+                mat_out[i, j] = mat_in[1 - i, 1 - j] / det
+            else:
+                mat_out[i, j] = -mat_in[1 - j, 1 - i] / det
+     
+    if np.all(mat_out == np.floor(mat_out)):
+        return mat_out.astype(int)
+    return mat_out
 
 # Exercise 2
 
+def logit(x, b0, b1):
+    """Logistic function."""
+    answer= (math.exp(b0 + b1 * x)) / (1 + math.exp((b0 + b1 * x)))
+    return answer
+
+def logit_like(yi, xi, b0, b1):
+    """Computes the log-likelihood for a single observation."""
+    p = logit(xi, b0, b1)
+    if yi not in[0,1]:
+        print("Error:Invalid yi value. Must be 0 or 1.")
+        return None
+    if yi == 1:
+        return math.log(p)
+    else:
+        return math.log(1 - p)
+
+def logit_like_sum(y, x, b0, b1):
+    """Computes the sum of log-likelihoods across all observations.
+    
+    >>>logit_like_sum([1, 0, 1], [2, 4, -3], 0.5, 0.8)
+    -5.8793
+    >>>logit_like_sum([0, 0, 1], [10/11, 2/4, -3], 3, 0.2)
+    -6.4534
+    >>>logit_like_sum([3, 0, 1], [1, 4/3, -3], 1, -0.8)
+    None
+    
+    """
+    
+    total = 0
+    for i in range(len(y)):
+        log_likelihood = logit_like(y[i], x[i], b0, b1)
+        if log_likelihood is None:
+            return None  
+        total += log_likelihood
+    return total
 
 # Exercise 3
-
 
 def logit_like_grad(y: list, x: list, beta_0: float, beta_1: float) -> float:
     """Calculates the gradient vector of the likelihood function
@@ -63,7 +130,6 @@ def logit_like_grad(y: list, x: list, beta_0: float, beta_1: float) -> float:
     """
     
     return None
-
 
 # Exercise 4
 
@@ -124,10 +190,48 @@ help (CESutility_multi)
 ##################################################
 
 # Exercise 1 Examples
+print("#" + 50*"-")
+print("Testing my Examples for Exercise 1.")
 
+print("#" + 50*"-")
+print("Exercise 1, Example 1:")
+print("Evaluating matrix_inverse(np.array([[4, 1],[3, 1]]))")
+print("Expected: " + str([[1, -1], [-3, 4]]))
+print("Got: " + str(matrix_inverse(np.array([[4, 1],[3, 1]]))))
+
+print("#" + 50*"-")
+print("Exercise 1, Example 2:")
+print("Evaluating matrix_inverse(np.array([[1/2, 2], [4/5, -11]]))")
+print("Expected: " + str([[1.5493, 0.2817], [0.1127, -0.0704]]))
+print("Got: " + str(matrix_inverse(np.array([[1/2, 2], [4/5, -11]]))))
+
+print("#" + 50*"-")
+print("Exercise 1, Example 3:")
+print("Evaluating matrix_inverse(np.array([[2, 3, 1], [5, 4, 2]])")
+print("Expected: " + str(None))
+print("Got: " + str(matrix_inverse(np.array([[2, 3, 1], [5, 4, 2]]))))
 
 # Exercise 2 Examples
+print("#" + 50*"-")
+print("Testing my Examples for Exercise 2.")
 
+print("#" + 50*"-")
+print("Exercise 1, Example 1:")
+print("Evaluating logit_like_sum([1, 0, 1], [2, 4, -3], 0.5, 0.8)")
+print("Expected: " + str(-5.8793))
+print("Got: " + str(logit_like_sum([1, 0, 1], [2, 4, -3], 0.5, 0.8)))
+
+print("#" + 50*"-")
+print("Exercise 1, Example 2:")
+print("Evaluating logit_like_sum([0, 0, 1], [10/11, 2/4, -3], 3, 0.2)")
+print("Expected: " + str(-6.4534))
+print("Got: " + str(logit_like_sum([0, 0, 1], [10/11, 2/4, -3], 3, 0.2)))
+
+print("#" + 50*"-")
+print("Exercise 1, Example 3:")
+print("Evaluating logit_like_sum([3, 0, 1], [1, 4/3, -3], 1, -0.8)")
+print("Expected: " + str(None))
+print("Got: " + str(logit_like_sum([3, 0, 1], [1, 4/3, -3], 1, -0.8)))
 
 # Exercise 3 Examples
 
@@ -153,7 +257,6 @@ print("Exercise 4, Example 1:")
 print("Evaluating CESutility_multi([2, 4, 6], [8, 10, 12, 14], 0.5)")
 print("Expected: " + str(None))
 print("Got: " + str(CESutility_multi([2, 4, 6], [8, 10, 12, 14], 0.5)))
-
 
 
 ##################################################
