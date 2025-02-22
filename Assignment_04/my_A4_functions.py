@@ -69,7 +69,6 @@ def matrix_inverse(mat_in: np.ndarray) -> np.ndarray:
         return mat_out.astype(int)
     return mat_out
 
-help(matrix_inverse)
 
 
 # Exercise 2
@@ -95,8 +94,6 @@ def logit(x: float, b0: float, b1: float) -> float:
     answer= (math.exp(b0 + b1 * x)) / (1 + math.exp((b0 + b1 * x)))
 
     return answer
- 
-help(logit)   
 
 
 def logit_like(y: float, x: float, b0: float, b1: float) -> float: 
@@ -131,8 +128,6 @@ def logit_like(y: float, x: float, b0: float, b1: float) -> float:
     else:
         return math.log(1 - p)
 
-help(logit_like)
-
 
 def logit_like_sum(y: list, x: list, b0: float, b1:float) -> float:
     """Computes the sum of log-likelihoods across all observations.
@@ -153,6 +148,9 @@ def logit_like_sum(y: list, x: list, b0: float, b1:float) -> float:
     None
     
     """
+    
+    # what if x and y are different lengths? (-1)
+    
     total = 0
     
     for i in range(len(y)):
@@ -161,8 +159,6 @@ def logit_like_sum(y: list, x: list, b0: float, b1:float) -> float:
             return None  
         total += log_likelihood
     return total
-
-help(logit_like_sum)
 
 
 # Exercise 3
@@ -192,6 +188,9 @@ def logit_like_grad(y: list, x: list, beta_0: float, beta_1: float) -> float:
     [-2/3, -2.0]
     
     """
+    
+    # what if x and y are different lengths? (-1)
+    
     b_0 = 0
     b_1 = 0
     
@@ -207,10 +206,6 @@ def logit_like_grad(y: list, x: list, beta_0: float, beta_1: float) -> float:
             print("Error: Values input for y should equal 0 or 1.")
             return None
     return [b_0, b_1]
-
-
-help (logit_like_grad)
-
 
 # Exercise 4
 
@@ -263,101 +258,7 @@ def CESutility_multi(x: list, a: list, r: float) -> float:
     return inside ** (1 / r)
 
 
-help (CESutility_multi)
-
-
-##################################################
-# Test the examples in your docstrings
-##################################################
-
-# Exercise 1 Examples
-print("#" + 50*"-")
-print("Testing my Examples for Exercise 1.")
-
-print("#" + 50*"-")
-print("Exercise 1, Example 1:")
-print("Evaluating matrix_inverse(np.array([[4, 1],[3, 1]]))")
-print("Expected: " + str([[1, -1], [-3, 4]]))
-print("Got: " + str(matrix_inverse(np.array([[4, 1],[3, 1]]))))
-
-print("#" + 50*"-")
-print("Exercise 1, Example 2:")
-print("Evaluating matrix_inverse(np.array([[2, 4], [1, 2]]))")
-print("Expected: " + str(None))
-print("Got: " + str(matrix_inverse(np.array([[2, 4], [1, 2]]))))
-
-print("#" + 50*"-")
-print("Exercise 1, Example 3:")
-print("Evaluating matrix_inverse(np.array([[2, 3, 1], [5, 4, 2]])")
-print("Expected: " + str(None))
-print("Got: " + str(matrix_inverse(np.array([[2, 3, 1], [5, 4, 2]]))))
-
-# Exercise 2 Examples
-print("#" + 50*"-")
-print("Testing my Examples for Exercise 2.")
-
-print("#" + 50*"-")
-print("Exercise 2, Example 1:")
-print("Evaluating logit_like_sum([1, 0, 1], [2, 4, -3], 0.5, 0.8)")
-print("Expected: " + str(-5.8793))
-print("Got: " + str(logit_like_sum([1, 0, 1], [2, 4, -3], 0.5, 0.8)))
-
-print("#" + 50*"-")
-print("Exercise 2, Example 2:")
-print("Evaluating logit_like_sum([0, 0, 1], [10/11, 2/4, -3], 3, 0.2)")
-print("Expected: " + str(-6.4534))
-print("Got: " + str(logit_like_sum([0, 0, 1], [10/11, 2/4, -3], 3, 0.2)))
-
-print("#" + 50*"-")
-print("Exercise 2, Example 3:")
-print("Evaluating logit_like_sum([3, 0, 1], [1, 4/3, -3], 1, -0.8)")
-print("Expected: " + str(None))
-print("Got: " + str(logit_like_sum([3, 0, 1], [1, 4/3, -3], 1, -0.8)))
-
-# Exercise 3 Examples
-print("#" + 50*"-")
-print("Testing my Examples for Exercise 3.")
-
-print("#" + 50*"-")
-print("Exercise 3, Example 1:")
-print("Evaluating logit_like_grad([1, 1, 0, 0], [15.0, 5.0, 15.0, 5.0], 0.0, 0.0))")
-print("Expected: " + str("[0.0, 0.0]"))
-print("Got: " + str(logit_like_grad([1, 1, 0, 0], [15.0, 5.0, 15.0, 5.0], 0.0, 0.0)))
-
-print("#" + 50*"-")
-print("Exercise 3, Example 2:")
-print("Evaluating logit_like_grad([1, 2, 0, 0], [15.0, 5.0, 15.0, 5.0], 0.0, 0.0))")
-print("Expected: " + str(None))
-print("Got: " + str(logit_like_grad([1, 2, 0, 0], [15.0, 5.0, 15.0, 5.0], 0.0, 0.0)))
-
-print("#" + 50*"-")
-print("Exercise 3, Example 3:")
-print("Evaluating logit_like_grad([1, 1, 0, 0], [15.0, 5.0, 15.0, 5.0], math.log(7), 0.0)")
-print("Expected: " + str("[-1.5, -15.0]"))
-print("Got: " + str(logit_like_grad([1, 1, 0, 0], [15.0, 5.0, 15.0, 5.0], math.log(7), 0.0)))
-
-# Exercise 4 Examples
-print("#" + 50*"-")
-print("Testing my Examples for Exercise 4.")
-
-print("#" + 50*"-")
-print("Exercise 4, Example 1:")
-print("Evaluating CESutility_multi([2, 4, 6], [8, 10, 12], 0.5)")
-print("Expected: " + str(353.81))
-print("Got: " + str(CESutility_multi([2, 4, 6], [8, 10, 12], 0.5)))
-
-print("#" + 50*"-")
-print("Exercise 4, Example 2:")
-print("Evaluating CESutility_multi([-2, 4, 6], [8, 10, 12], 0)")
-print("Expected: " + str(None))
-print("Got: " + str(CESutility_multi([-2, 4, 6], [8, 10, 12], 0)))
-
-print("#" + 50*"-")
-print("Exercise 4, Example 3:")
-print("Evaluating CESutility_multi([2, 4, 6], [8, 10, 12, 14], 0.5)")
-print("Expected: " + str(None))
-print("Got: " + str(CESutility_multi([2, 4, 6], [8, 10, 12, 14], 0.5)))
-
+# Did not use doc test as specified in the assignment (-5)
 
 ##################################################
 # End
