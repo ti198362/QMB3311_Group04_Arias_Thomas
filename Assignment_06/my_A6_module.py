@@ -1,7 +1,74 @@
+"""
+##################################################
+#
+# QMB 3311: Python for Business Analytics
+#
+# Name: Timothy Arias and Destiny Thomas
+#
+# Date:03/31/2025
+# 
+##################################################
+#
+# Function Definitions
+#
+##################################################
+"""
+
+##################################################
+# Import Required Modules
+##################################################
+
 import numpy as np
 import math
 import doctest
-#Question 2
+
+##################################################
+# Function Definitions
+##################################################
+
+# Exercise 1
+
+def ln_taylor(z: float, n: int) -> float: 
+    """Calculates the first 'n' terms of the Taylor series approximation of 
+    the natural logarithm of 'z'.
+
+    >>> ln_taylor(1.0, 10)
+    0.0
+    >>> ln_taylor(1.8, 25)
+    0.5878523427056109
+    >>> ln_taylor(1.5, 15)
+    0.4054657568451514
+    >>> ln_taylor(1.1, 10)
+    0.09531017980349216
+    >>> ln_taylor(0, 20)
+    Error: z must be strictly positive.
+    >>> ln_taylor(1.1, -10)
+    Error: n must be a strictly positive integer.
+    """
+    Error = False
+    
+    if z <= 0:
+        print("Error: z must be strictly positive.")
+        Error = True
+        
+    if n <= 0:
+        print("Error: n must be a strictly positive integer.")
+        Error = True
+    
+    if Error:
+        return None
+    
+    approximation = 0
+    
+    for k in range(1, n + 1):
+        ln_z = ((-1) ** (k - 1)) * (1 / k) * (z - 1) ** k
+        approximation += ln_z
+        
+    return approximation
+
+
+# Exercise 2
+
 def exp_x_diff(x, z):
    """ Function that returns the value of e^x - z
     
@@ -17,11 +84,9 @@ def exp_x_diff(x, z):
    """
    return math.exp(x) - z
 
-if __name__== "__main__":
-    doctest.testmod(verbose=True)
 
+# Exercise 3
 
-#Question 3
 def ln_z_bisect(z, a_0, b_0, num_iter):
     """Function that approximates ln(z) using the bisection method.
     The method finds a root of f(x) = exp(x) - z within [a_0, b_0].
@@ -111,12 +176,10 @@ def ln_z_bisect(z, a_0, b_0, num_iter):
             f_a = f_m
 
     return (a_0 + b_0) / 2
-
-if __name__== "__main__":
-    doctest.testmod(verbose=True)
     
 
-#Question 4
+# Exercise 4
+
 def exp_x_diff_prime(x, z):
     """Derivative of f(x) = e^x - z with respect to x.
    
@@ -132,8 +195,6 @@ def exp_x_diff_prime(x, z):
    """
     return math.exp(x)
 
-if __name__== "__main__":
-    doctest.testmod(verbose=True)
 
 def newton_root_f(x_0, z, tol, num_iter):
     """Uses Newton's method to find root of f(x) = e^x - z.
@@ -158,12 +219,10 @@ def newton_root_f(x_0, z, tol, num_iter):
     
     print("Exceeded allowed number of iterations")
     return None
-
-if __name__== "__main__":
-    doctest.testmod(verbose= True)
     
 
-#Question 5
+# Exercise 5
+
 def ln_z_newton(z, x_0, tol, num_iter):
     """
    Uses Newton's method to estimate ln(z) by solving e^x - z = 0.
@@ -209,6 +268,42 @@ def ln_z_newton(z, x_0, tol, num_iter):
     
     return x
 
-if __name__== "__main__":
-    doctest.testmod(verbose= True)
+
+# Exercise 6
+
+
+
+# Exercise 7
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+##################################################
+# Examples
+##################################################
+
+
+doctest.testmod()
+
+
+##################################################
+# End
+##################################################
+
+
+
+
+
+
     
