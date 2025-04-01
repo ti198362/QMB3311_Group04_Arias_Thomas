@@ -58,13 +58,13 @@ def ln_taylor(z: float, n: int) -> float:
     if Error:
         return None
     
-    approximation = 0
+    approx = 0
     
     for k in range(1, n + 1):
-        ln_z = ((-1) ** (k - 1)) * (1 / k) * (z - 1) ** k
-        approximation += ln_z
+        function = ((-1) ** (k - 1)) * (1 / k) * (z - 1) ** k
+        approx += function
         
-    return approximation
+    return approx
 
 
 # Exercise 2
@@ -271,6 +271,24 @@ def ln_z_newton(z, x_0, tol, num_iter):
 
 # Exercise 6
 
+def exp_x_fp_fn(x: float, z: float) -> float:
+    """
+    Function to compute g(x) for a given z based on the equation:
+    g(x) = 1/2 * (z - e^x + 2x)
+        
+    >>> exp_x_fp_fn(0.5, 2)
+    0.6756393646499359
+    >>> exp_x_fp_fn(0, 2)
+    0.5
+    >>> exp_x_fp_fn(1, 3)
+    1.1408590857704775
+    >>> exp_x_fp_fn(0.5, 1.5)
+    0.4256393646499359
+    """
+    
+    g_x = 0.5 * (z - math.exp(x) + 2 * x)
+    
+    return g_x
 
 
 # Exercise 7
