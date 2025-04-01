@@ -18,7 +18,6 @@
 # Import Required Modules
 ##################################################
 
-import numpy as np
 import math
 import doctest
 
@@ -69,7 +68,7 @@ def ln_taylor(z: float, n: int) -> float:
 
 # Exercise 2
 
-def exp_x_diff(x, z):
+def exp_x_diff(x: float, z: float) -> float:
    """ Function that returns the value of e^x - z
     
     >>> round(exp_x_diff(4, 1), 3)
@@ -87,7 +86,7 @@ def exp_x_diff(x, z):
 
 # Exercise 3
 
-def ln_z_bisect(z, a_0, b_0, num_iter):
+def ln_z_bisect(z: float, a_0: float, b_0: float, num_iter: int) -> float:
     """Function that approximates ln(z) using the bisection method.
     The method finds a root of f(x) = exp(x) - z within [a_0, b_0].
 
@@ -180,7 +179,7 @@ def ln_z_bisect(z, a_0, b_0, num_iter):
 
 # Exercise 4
 
-def exp_x_diff_prime(x, z):
+def exp_x_diff_prime(x: float, z: float) -> float:
     """Derivative of f(x) = e^x - z with respect to x.
    
    >>> round(exp_x_diff_prime(4, 7), 3)
@@ -196,7 +195,7 @@ def exp_x_diff_prime(x, z):
     return math.exp(x)
 
 
-def newton_root_f(x_0, z, tol, num_iter):
+def newton_root_f(x_0: float, z:float, tol: float, num_iter: int) -> float:
     """Uses Newton's method to find root of f(x) = e^x - z.
     
     >>> round(newton_root_f(4, 6, 0.0005, 50),3)
@@ -223,9 +222,8 @@ def newton_root_f(x_0, z, tol, num_iter):
 
 # Exercise 5
 
-def ln_z_newton(z, x_0, tol, num_iter):
-    """
-   Uses Newton's method to estimate ln(z) by solving e^x - z = 0.
+def ln_z_newton(z: float, x_0: float, tol: float, num_iter: int) -> float:
+   """Uses Newton's method to estimate ln(z) by solving e^x - z = 0.
 
    Returns:
    - Approximation of ln(z) if converged
@@ -247,8 +245,8 @@ def ln_z_newton(z, x_0, tol, num_iter):
    Last estimate of ln(z): 2.4347928347280563
    2.435
    """
-    x = x_0
-    for i in range(num_iter):
+   x = x_0
+   for i in range(num_iter):
         f_val = exp_x_diff(x, z)
         f_prime_val = exp_x_diff_prime(x, z)
 
@@ -263,18 +261,16 @@ def ln_z_newton(z, x_0, tol, num_iter):
 
         x = x_next
         
-    print("Reached max iterations without satisfying tolerance.")
-    print('Last estimate of ln(z):', x)
+   print("Reached max iterations without satisfying tolerance.")
+   print('Last estimate of ln(z):', x)
     
-    return x
+   return x
 
 
 # Exercise 6
 
 def exp_x_fp_fn(x: float, z: float) -> float:
-    """
-    Function to compute g(x) for a given z based on the equation:
-    g(x) = 1/2 * (z - e^x + 2x)
+    """Returns the value g(x) for a given value of "z".
         
     >>> exp_x_fp_fn(0.5, 2)
     0.6756393646499359
@@ -293,18 +289,27 @@ def exp_x_fp_fn(x: float, z: float) -> float:
 
 # Exercise 7
 
-
-
-
-
-
-
-
-
-
-
-
-
+def ln_zfixed_pt(z: float, x_0: float, tol: float, num_iter: int) -> float:
+    """Uses the fixed-point method to find the natural logarithm of z.
+    
+    >>> ln_zfixed_pt(2, 1, 1, 100)
+    0.6408590857704775
+    >>> ln_zfixed_pt(1.5, 1, 1, 50)
+    0.39085908577047745
+    >>> ln_zfixed_pt(3, 0.5, 1, 100)
+    1.175639364649936
+    """
+    
+    x = x_0
+    
+    for i in range(num_iter):
+        x_i = exp_x_fp_fn(x, z)
+        
+        if abs(x_i - x) < tol:
+            return x_i
+        x = x_i
+        
+    return x
 
 
 ##################################################
@@ -318,10 +323,6 @@ doctest.testmod()
 ##################################################
 # End
 ##################################################
-
-
-
-
 
 
     
