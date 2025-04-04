@@ -105,7 +105,7 @@ def CESutility_in_budget(x:float, y:float, r:float, p_x:float, p_y:float, w:floa
         print('Error in CESutility_in_budget: prices cannot be negative or zero.')
         return None
     elif p_x*x + p_y*y > w:
-        print('Error in CESutility_in_budget: budget constraint not satisfied.')
+       # print('Error in CESutility_in_budget: budget constraint not satisfied.')
         return None
     else :
         return CESutility_valid(x, y, r)
@@ -121,7 +121,7 @@ if __name__== "__main__":
 #--------------------------------------------------
 
 #Problem 1
-def CESdemand_calc(r, p_x, p_y, w):
+def CESdemand_calc(r, p_x, p_y, w): # expected input/output?
     """ Formula that returns a list of two values [x star,y star] that achieve
     the maximum value of CES utility 
     
@@ -166,7 +166,7 @@ help(CESdemand_calc)
 if __name__ == "__main__":
     doctest.testmod(verbose= True)
 
-def max_CES_xy(x_min,x_max, y_min, y_max, step, r, p_x, p_y, w):
+def max_CES_xy(x_min,x_max, y_min, y_max, step, r, p_x, p_y, w): # expected input/output?
     """Finds the values of x and y that maximize CESutility under
     the budget constraint.
     
